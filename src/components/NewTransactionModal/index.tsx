@@ -1,6 +1,6 @@
 import * as Dialog from '@radix-ui/react-dialog';
-import { Content, Overlay, CloseButton } from './styles';
-import { X } from "phosphor-react";
+import { Content, Overlay, CloseButton, TransactionType, TransactionTypeButton } from './styles';
+import { X, ArrowCircleUp, ArrowCircleDown, } from "phosphor-react";
 export function NewTransactionModal() {
     return (
         <Dialog.Portal>
@@ -21,9 +21,20 @@ export function NewTransactionModal() {
                     <button type='submit'>
                         Cadastrar
                     </button>
-                </form>
 
-                <Dialog.Close />
+                    <TransactionType>
+                        <TransactionTypeButton variant='income' value='income'>
+                            <ArrowCircleUp size={24} />
+                            Entrada
+                        </TransactionTypeButton>
+
+                        <TransactionTypeButton variant='outcome' value='outcome'>
+                            <ArrowCircleDown size={24} />
+                            Saída
+                        </TransactionTypeButton>
+
+                    </TransactionType>
+                </form>
             </Content>
         </Dialog.Portal>
     )
